@@ -186,6 +186,11 @@ main {
     border-radius: 1000px;
 }
 
+.aboutmecontentright {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 .aboutmecontentright img {
     width: 450px;
 }
