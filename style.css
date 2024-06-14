@@ -1,0 +1,394 @@
+@font-face {
+    font-family: Retropix;
+    src: url(retropix.ttf);
+}
+
+@font-face {
+    font-family: 'Awesome Lathusca';
+    src: url(Awesome\ Lathusca.ttf);
+}
+
+@font-face {
+    font-family: Garet;
+    src: url(Garet-Book.ttf);
+}
+
+@font-face {
+    font-family: Brasika;
+    src: url(brasika-display-trial.otf);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,p {
+    margin: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h1 {
+    font-family: 'Awesome Lathusca';
+    font-size: 40px;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+img {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-image: linear-gradient(to right, #FABFD4 , #F1729F);
+    padding: 1vh;
+}
+
+header h2 {
+    font-family: 'Awesome Lathusca';
+}
+
+.headleft {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    font-size: 25px;
+}
+
+.headleft img {
+    width: 40px;
+}
+
+.headright {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    color: white;
+}
+
+.headright p {
+    font-family: Retropix;
+}
+
+.headbutton {
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 15px;
+    background-color: #fcdee900;
+    color: white;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.headbutton:hover {
+    background-color: #FCDEE9;
+    color: #FF7BAA;
+}
+
+
+#all {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+main {
+    flex: 1;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.title img {
+    width: 600px;
+}
+
+.squarebg {
+    background-color: #FAFAEC;
+    opacity: 1;
+    background-image:  linear-gradient(#ffffff 5px, transparent 2.3000000000000003px), linear-gradient(to right, #ffffff 5px, #FAFAEC 2.3000000000000003px);
+    background-size: 46px 46px;
+}
+
+.aboutmecontent {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.aboutmecontentleft {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 50%;
+}
+
+.aboutmecontentleft h2 {
+    font-size: 50px;
+}
+
+.aboutmecontentleft p {
+    font-size: 26px;
+    text-align: justify;
+}
+
+#aboutmedesc1 {
+    height: 95%;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#aboutmedesc1 h2 {
+    font-family: Brasika;
+    font-size: 55px;
+}
+
+#aboutmedesc1 p {
+    font-family: Garet;
+    font-weight: 650;
+}
+
+
+#amcloption {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    justify-content: center;
+    align-items: end;
+}
+
+.amclbutton {
+    color: white;
+    background-color: black;
+    width: 20px;
+    height: 20px;
+    border-radius: 1000px;
+}
+
+.aboutmecontentright img {
+    width: 450px;
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .aboutmecontentright img {
+        width: 350px;
+    }
+
+    .aboutmecontentleft h2 {
+        font-size: 40px;
+    }
+    
+    .aboutmecontentleft p {
+        font-size: 20px;
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+
+    .aboutmecontentright img {
+        width: 250px;
+    }
+
+    #aboutmedesc1 h2 {
+        font-size: 35px;
+    }
+    
+    .aboutmecontentleft p {
+        font-size: 15px;
+    }
+
+    #myprojects .title img {
+        width: 450px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .aboutmecontentright img {
+        width: 150px;
+    }
+
+    #aboutmedesc1 h2 {
+        font-size: 25px;
+    }
+    
+    .aboutmecontentleft p {
+        font-size: 12px;
+    }
+
+    #myprojects .title img {
+        width: 380px;
+    }
+}
+
+.myprocontent {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.myprobutton {
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(white, #FAF6B7);
+    font-size: 30px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 3px;
+}
+
+.myprobutton p {
+    font-family: 'Awesome Lathusca';
+}
+
+.mppink {
+    border-color: #FF7BAA;
+}
+
+.mpyellow {
+    border-color: #F6CA61;
+}
+
+.mpcyan {
+    border-color: #96CECC;
+}
+
+.mporange {
+    border-color: #FBA47A;
+}
+
+.mppurple {
+    border-color: #E9A3D5;
+}
+
+footer {
+    flex-shrink: 0;
+    display: flex;
+    padding: 20px;
+}
+
+#footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+footer p {
+    font-family: Garet;
+    font-weight: 900;
+}
+
+#footleft {
+    display: flex;
+    gap: 5px;
+}
+
+#footleft img {
+    width: 200px;
+}
+
+.footsocial {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social p {
+    text-decoration: underline;
+}
+
+#footright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#footright img {
+    width: 300px;
+}
+
+.fa {
+    font-size:24px;
+}
+
+@media only screen and (max-width: 850px) {
+
+    #footright img {
+        display: none;
+    }
+
+    #footer {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 35px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    
+    .social {
+        font-size: 12px;
+    }
+    
+}
+
+@media only screen and (max-width: 500px) {
+    
+    #footleft img {
+        width: 150px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    #footleft img {
+        width: 100px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    
+    #myprojects .title img {
+        width: 300px;
+    }
+
+    .social {
+        font-size: 12px;
+    }
+}
