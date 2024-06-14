@@ -84,6 +84,13 @@ header h2 {
     font-family: Retropix;
 }
 
+@media only screen and (max-width: 450px) {
+
+    .headright p {
+        font-size: 20px;
+    }
+}
+
 .headbutton {
     padding: 10px;
     font-size: 25px;
@@ -257,17 +264,66 @@ main {
     padding: 20px;
 }
 
-.myprobutton {
+.mplabel {
+    position: relative;
     display: flex;
     justify-content: center;
     background-image: linear-gradient(white, #FAF6B7);
+    color: black;
     font-size: 30px;
     text-align: center;
     padding: 10px;
     border-radius: 20px;
     border-style: solid;
     border-width: 3px;
+    cursor: pointer;
+    transform: translateY(25%);
+    z-index: 2;
+
+    transition: background-image 0.5s ease-in-out;
 }
+
+.mplabel::before {
+    content: '-';
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-60%);
+    font-size: 1.5em;
+    opacity: 0;
+}
+
+.myprobutton.active .mplabel::before {
+    opacity: 1;
+}
+
+.mplabelcontent {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    background-image: linear-gradient(white, #FAF6B7);
+    border-radius: 00px 00px 20px 20px;
+    border-style: solid;
+    border-width: 3px;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.5s;
+    overflow-y: auto;
+    z-index: 1;
+}
+  
+.myprobutton.active .mplabelcontent {
+    max-height: 1200px;
+    padding: 35px 20px 20px;
+}
+
+.mplabelcontent img {
+    max-width: 300px;
+    border-radius: 20px;
+}
+
 
 .myprobutton p {
     font-family: 'Awesome Lathusca';
@@ -277,20 +333,45 @@ main {
     border-color: #FF7BAA;
 }
 
+.mplabel.mppink:hover,
+.myprobutton.active .mplabel.mppink {
+    background-image: linear-gradient(#FF7BAA, #FF7BAA);
+}
+
 .mpyellow {
     border-color: #F6CA61;
+}
+
+.mplabel.mpyellow:hover,
+.myprobutton.active .mplabel.mpyellow {
+    background-image: linear-gradient(#F6CA61, #F6CA61);
 }
 
 .mpcyan {
     border-color: #96CECC;
 }
 
+.mplabel.mpcyan:hover,
+.myprobutton.active .mplabel.mpcyan {
+    background-image: linear-gradient(#96CECC, #96CECC);
+}
+
 .mporange {
     border-color: #FBA47A;
 }
 
+.mplabel.mporange:hover,
+.myprobutton.active .mplabel.mporange {
+    background-image: linear-gradient(#FBA47A, #FBA47A);
+}
+
 .mppurple {
     border-color: #E9A3D5;
+}
+
+.mplabel.mppurple:hover,
+.myprobutton.active .mplabel.mppurple {
+    background-image: linear-gradient(#E9A3D5, #E9A3D5);
 }
 
 footer {
