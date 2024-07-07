@@ -46,25 +46,49 @@
             
             <div id="aboutme" class="squarebg">
                 <div class="aboutmecontent">
-
-                    
                         <div class="aboutmecontentleft">
-                            <div id="aboutmedesc1">
-                                <h2><span style="color: #E9A3D5;">H</span><span style="color: #FBA47A;">i</span><span style="color: #F6CA61;">,</span> <span style="color: #96CECC;">I'</span><span style="color: #E9A3D5;">m</span> <span style="color: #FF7BAA;">B</span><span style="color: #96CECC;">e</span><span style="color: #F6CA61;">a</span><span style="color: #96CECC;">!</span></h2>
-                                <p>I am a self-taught designer for seven months already, I'm dedicated to continuous learning, and confident on my creativity. I consistently seek opportunities for improvement and thrive on having new challenges to expand my skills and knowledge in design.</p>
-                            </div>
+                            <!-- Slideshow container -->
+                            <div class="slideshow-container">
 
-                            <div id="amcloption">
-                                <a href="">
-                                    <div class="amclbutton">
+                                <!-- Full-width images with number and caption text -->
+                                <div class="mySlides fade">
+                                    <div id="aboutmedesc1">
+                                        <h2><span style="color: #E9A3D5;">H</span><span style="color: #FBA47A;">i</span><span style="color: #F6CA61;">,</span> <span style="color: #96CECC;">I'</span><span style="color: #E9A3D5;">m</span> <span style="color: #FF7BAA;">B</span><span style="color: #96CECC;">e</span><span style="color: #F6CA61;">a</span><span style="color: #96CECC;">!</span></h2>
+                                        <p>I am a self-taught designer for seven months already, I'm dedicated to continuous learning, and confident on my creativity. I consistently seek opportunities for improvement and thrive on having new challenges to expand my skills and knowledge in design.</p>
                                     </div>
-                                </a>
-                                <a href="">
-                                    <div class="amclbutton">
-                                    </div>
-                                </a>
-                            </div>
+                                </div>
+                            
+                                <div class="mySlides fade">
+                                    <div id="aboutmedesc2">
+                                        <div>
+                                            <h2 class="amdorange">Experiences</h2>
+                                            <div class="amdspec mpcyan">
+                                                <p>ZNNHS The Mainstream Graphic Designer <br>
+                                                    ZNNHS The Mainstream Social Media Manager <br>
+                                                    BKD Federation Head Publication Staff
+                                                </p>
+                                            </div>
+                                        </div>
 
+                                        <div>
+                                            <h2 class="amdyellow">Certification</h2>
+                                            <div class="amdspec mppurple">
+                                                <p>University of the Philippines Open University <br>
+                                                    Principles of Graphic Design <br>
+                                                    16 hours of training completion
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            
+                            <!-- The dots/circles -->
+                            <div style="text-align:center">
+                                <span class="dot" onclick="currentSlide(1)"></span>
+                                <span class="dot" onclick="currentSlide(2)"></span>
+                            </div>
                         </div>
 
                     <div class="aboutmecontentright">
@@ -181,6 +205,62 @@
             </div>
         </footer>
     </div>
+
+    <script>
+        let slideIndex = 1;
+        let autoSlideTimeout;
+    
+        showSlides(slideIndex);
+    
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+    
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+    
+        // Show slides based on index
+        function showSlides(n) {
+            clearTimeout(autoSlideTimeout);
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+            autoSlideTimeout = setTimeout(showSlidesAuto, 2000); // Restart automatic slideshow
+        }
+    
+        // Automatic slideshow
+        function showSlidesAuto() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+            autoSlideTimeout = setTimeout(showSlidesAuto, 10000); // Change image every 10 seconds
+        }
+    </script>
+
+
 </body>
 
 </html>
