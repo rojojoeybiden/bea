@@ -245,7 +245,7 @@
             }
             slides[slideIndex-1].style.display = "block";
             dots[slideIndex-1].className += " active";
-            autoSlideTimeout = setTimeout(showSlidesAuto, 2000); // Restart automatic slideshow
+            autoSlideTimeout = setTimeout(showSlidesAuto, 50000); // Restart automatic slideshow //20sec
         }
     
         // Automatic slideshow
@@ -263,7 +263,7 @@
             }
             slides[slideIndex-1].style.display = "block";
             dots[slideIndex-1].className += " active";
-            autoSlideTimeout = setTimeout(showSlidesAuto, 1000000000); // Change image every 10 seconds = 10000
+            autoSlideTimeout = setTimeout(showSlidesAuto, 10000); // Change image every 10 seconds
         }
     </script>
 
