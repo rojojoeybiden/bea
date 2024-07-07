@@ -135,55 +135,59 @@ main {
     background-size: 46px 46px;
 }
 
+#aboutme {
+    display: flex;
+    justify-content: center;
+}
+
 .aboutmecontent {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
 }
 
 .aboutmecontentleft {
     display: flex;
-    width: 55%;
     flex-direction: column;
-    padding: 20px;
-} 
-
-.aboutmecontentleft h2, .aboutmecontentright h2 {
-    font-size: 50px;
+    /* background-color: green; */
+    width: 900px;
 }
 
-.aboutmecontentleft p, .aboutmecontentright p {
-    font-size: 26px;
-    text-align: justify;
-}
+/* ABOUTMEDESC1 */
 
-#aboutmedesc1 {
-    height: 95%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#aboutmedesc1 h2 {
+.aboutmedesc1 h2 {
     font-family: Brasika;
     font-size: 55px;
 }
 
-#aboutmedesc1 p {
+.aboutmedesc1 p {
+    font-size: 26px;
     font-family: Garet;
     font-weight: 650;
 }
 
-#aboutmedesc2 {
-    height: 95%;
-    display: flex;
-    flex-direction: column;
+/* ABOUTMEDESC1 */
+
+/* ABOUTMEDESC2 */
+
+.aboutmedesc2 h2 {
+    font-family: 'Awesome Lathusca';
+    font-size: 65px;
 }
 
-#aboutmedesc2 h2 {
-    text-align: center;
-    font-family: 'Awesome Lathusca';
-    font-size: 45px;
+.amdspec {
+    padding: 10px;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 5px;
+}
+
+.amdspec p {
+    font-size: 26px;
+    font-family: Garet;
+    font-weight: 600;
+    text-align: left;
 }
 
 .amdorange {
@@ -194,94 +198,179 @@ main {
     color: #F6CA61;
 }
 
-.amdspec {
-    padding: 15px;
-    border-radius: 20px;
-    border-style: solid;
-    border-width: 5px;
-}
-
-.amdspec p {
-    font-family: Garet;
-    font-weight: 600;
-    text-align: left;
-}
+/* ABOUTMEDESC2 */
 
 
 .aboutmecontentright {
     display: flex;
-    flex-direction: column-reverse;
+    align-items: end;
+    /* background-color: greenyellow; */
 }
 
 .aboutmecontentright img {
-    width: 450px;
+    max-width: 450px;
 }
 
-@media only screen and (max-width: 1200px) {
+.aboutmebutton {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 8px;
+}
 
-    .aboutmecontentright img {
-        width: 350px;
+@media only screen and (max-width: 1440px) {
+    
+    .aboutmedesc1 p {
+        width: 800px;
     }
 
-    .aboutmecontentleft h2 {
-        font-size: 40px;
+    .aboutmecontentleft {
+        width: 900px;
+    }
+}
+
+@media only screen and (max-width: 1290px) {
+    
+    .aboutmedesc1 p {
+        width: 600px;
+    }
+
+    .aboutmedesc2 h2 {
+        font-size: 60px;
+    }
+
+    .aboutmedesc2 p {
+        font-size: 25px;
+        width: 600px;
     }
     
-    .aboutmecontentleft p {
-        font-size: 20px;
+    .aboutmecontentright img {
+        width: 380px;
     }
-
 }
 
-@media only screen and (max-width: 860px) {
+@media only screen and (max-width: 1100px) {
 
+    .aboutmedesc1 h2 {
+        font-size: 45px;
+    }
+    
+    .aboutmedesc1 p {
+        font-size: 20px;
+        width: 450px;
+    }
+
+    .aboutmedesc2 h2 {
+        font-size: 60px;
+    }
+
+    .aboutmedesc2 p {
+        font-size: 19px;
+        width: 450px;
+    }
+    
     .aboutmecontentright img {
-        width: 230px;
+        width: 300px;
     }
 }
 
 @media only screen and (max-width: 800px) {
 
-    .aboutmecontentright img {
-        width: 250px;
-    }
-
-    #aboutmedesc1 h2 {
-        font-size: 35px;
+    .aboutmedesc1 h2 {
+        font-size: 45px;
     }
     
-    .aboutmecontentleft p {
-        font-size: 15px;
+    .aboutmedesc1 p {
+        font-size: 20px;
+        width: 420px;
     }
 
-    #myprojects .title img {
-        width: 450px;
+    .aboutmedesc2 h2 {
+        font-size: 60px;
+    }
+
+    .aboutmedesc2 p {
+        font-size: 17px;
+        width: 420px;
+    }
+    
+    .aboutmecontentright img {
+        width: 300px;
     }
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 768px) {
 
+    .aboutmedesc1 h2 {
+        font-size: 35px;
+    }
+    
+    .aboutmedesc1 p {
+        font-size: 15px;
+        width: 300px;
+    }
+
+    .aboutmedesc2 h2 {
+        font-size: 40px;
+    }
+
+    .aboutmedesc2 p {
+        font-size: 15px;
+        width: 300px;
+    }
+    
     .aboutmecontentright img {
-        width: 200px;
+        width: 250px;
     }
 }
 
 @media only screen and (max-width: 600px) {
 
-    .aboutmecontentright img {
-        width: 150px;
-    }
-
-    #aboutmedesc1 h2 {
-        font-size: 25px;
+    .aboutmedesc1 h2 {
+        font-size: 30px;
     }
     
-    .aboutmecontentleft p {
-        font-size: 12px;
+    .aboutmedesc1 p {
+        font-size: 13px;
+        width: 250px;
     }
 
-    #myprojects .title img {
-        width: 380px;
+    .aboutmedesc2 h2 {
+        font-size: 35px;
+    }
+
+    .aboutmedesc2 p {
+        font-size: 13px;
+        width: 250px;
+    }
+    
+    .aboutmecontentright img {
+        width: 200px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+
+    .aboutmedesc1 h2 {
+        font-size: 20px;
+    }
+    
+    .aboutmedesc1 p {
+        font-size: 10px;
+        width: 200px;
+    }
+
+    .aboutmedesc2 h2 {
+        font-size: 25px;
+    }
+
+    .aboutmedesc2 p {
+        font-size: 10px;
+        width: 150px;
+    }
+    
+    .aboutmecontentright img {
+        width: 150px;
     }
 }
 
@@ -464,11 +553,8 @@ footer p {
     font-size:24px;
 }
 
-@media only screen and (max-width: 850px) {
 
-    .aboutmecontentleft p {
-        font-size: 15px;
-    }
+@media only screen and (max-width: 850px) {
 
     #footright img {
         display: none;
@@ -479,6 +565,20 @@ footer p {
         justify-content: center;
         flex-direction: column;
         gap: 35px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+    #myprojects .title img {
+        width: 450px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    #myprojects .title img {
+        width: 380px;
     }
 }
 
@@ -495,10 +595,6 @@ footer p {
     #footleft img {
         width: 150px;
     }
-
-    .aboutmecontentright img {
-        width: 100px;
-    }
     
 }
 
@@ -509,25 +605,6 @@ footer p {
 }
 
 @media only screen and (max-width: 400px) {
-    
-    .aboutmecontentleft p {
-        font-size: 10px;
-    }
-
-    #aboutmedesc2 h2 {
-        font-size: 25px;
-    }
-
-    .aboutmecontentright img {
-        width: 100px;
-    }
-
-    .amdspec {
-        padding: 5px;
-        border-radius: 20px;
-        border-style: solid;
-        border-width: 5px;
-    }
 
     #myprojects .title img {
         width: 300px;
@@ -538,19 +615,8 @@ footer p {
     }
 }
 
-@media only screen and (max-width: 375px) {
-    .amdspec p {
-        font-size: 8px;
-    }
-
-    .amdspec {
-        border-width: 3px;
-    }
-}
-
 /* Slideshow container */
 .slideshow-container {
-    max-width: 1000px;
     position: relative;
     margin: auto;
   }

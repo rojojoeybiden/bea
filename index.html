@@ -52,14 +52,14 @@
 
                                 <!-- Full-width images with number and caption text -->
                                 <div class="mySlides fade">
-                                    <div id="aboutmedesc1">
+                                    <div class="aboutmedesc1">
                                         <h2><span style="color: #E9A3D5;">H</span><span style="color: #FBA47A;">i</span><span style="color: #F6CA61;">,</span> <span style="color: #96CECC;">I'</span><span style="color: #E9A3D5;">m</span> <span style="color: #FF7BAA;">B</span><span style="color: #96CECC;">e</span><span style="color: #F6CA61;">a</span><span style="color: #96CECC;">!</span></h2>
                                         <p>I am a self-taught designer for seven months already, I'm dedicated to continuous learning, and confident on my creativity. I consistently seek opportunities for improvement and thrive on having new challenges to expand my skills and knowledge in design.</p>
                                     </div>
                                 </div>
                             
                                 <div class="mySlides fade">
-                                    <div id="aboutmedesc2">
+                                    <div class="aboutmedesc2">
                                         <div>
                                             <h2 class="amdorange">Experiences</h2>
                                             <div class="amdspec mpcyan">
@@ -70,6 +70,12 @@
                                             </div>
                                         </div>
 
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="mySlides fade">
+                                    <div class="aboutmedesc2">
                                         <div>
                                             <h2 class="amdyellow">Certification</h2>
                                             <div class="amdspec mppurple">
@@ -85,9 +91,10 @@
                             <br>
                             
                             <!-- The dots/circles -->
-                            <div style="text-align:center">
+                            <div class="aboutmebutton" style="text-align:center">
                                 <span class="dot" onclick="currentSlide(1)"></span>
                                 <span class="dot" onclick="currentSlide(2)"></span>
+                                <span class="dot" onclick="currentSlide(3)"></span>
                             </div>
                         </div>
 
@@ -256,7 +263,7 @@
             }
             slides[slideIndex-1].style.display = "block";
             dots[slideIndex-1].className += " active";
-            autoSlideTimeout = setTimeout(showSlidesAuto, 10000); // Change image every 10 seconds
+            autoSlideTimeout = setTimeout(showSlidesAuto, 1000000000); // Change image every 10 seconds = 10000
         }
     </script>
 
