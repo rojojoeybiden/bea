@@ -115,8 +115,10 @@
                             <p>School project posters</p>
                         </div>
                         <div class="mplabelcontent mppink">
-                            <img src="test.jpg" alt="">
-                            <img src="test.jpg" alt="">
+                            <img src="assets/School projects/made by bea.png" alt="">
+                            <img src="assets/School projects/made by bea 02.jpg" alt="">
+                            <img src="assets/School projects/tarp for csr.png" alt="">
+                            <img src="assets/School projects/tarpapel for yaring kamay f.png" alt="">
                         </div>    
                     </div>
                     
@@ -125,7 +127,15 @@
                             <p>Organization pubmats</p>
                         </div>
                         <div class="mplabelcontent mpyellow">
-                            <img src="test.jpg" alt="">
+                            <img src="assets/Org pubmats/500 followers.jpg" alt="">
+                            <img src="assets/Org pubmats/Barkada Kontra Droga Outreach Program Gift of Hopes .jpg" alt="">
+                            <img src="assets/Org pubmats/Barkada Kontra Droga TRIVIA.png" alt="">
+                            <img src="assets/Org pubmats/bkd cleanup.png" alt="">
+                            <img src="assets/Org pubmats/Christmas pubmat.png" alt="">
+                            <img src="assets/Org pubmats/fe300488-a3ea-4197-bf1b-ebd770713afa.jpg" alt="">
+                            <img src="assets/Org pubmats/Happy Birthday bkd officers & staff (1).png" alt="">
+                            <img src="assets/Org pubmats/Happy new year BKD.jpg" alt="">
+                            <img src="assets/Org pubmats/Merry Christmas bkd.png" alt="">
                         </div>    
                     </div>     
 
@@ -134,7 +144,12 @@
                             <p>School paper pubmats</p>
                         </div>
                         <div class="mplabelcontent mpcyan">
-                            <img src="test.jpg" alt="">
+                            <img src="assets/School paper/Copy of Headline Layout Template.png" alt="">
+                            <img src="assets/School paper/New year pubmat.jpg" alt="">
+                            <img src="assets/School paper/Statistics as a Vital Pulse.png" alt="">
+                            <img src="assets/School paper/The Mainstream Bday Layout.png" alt="">
+                            <img src="assets/School paper/un celebration.png" alt="">
+                            <img src="assets/School paper/xmas pubmat.jpg" alt="">
                         </div>    
                     </div>  
 
@@ -143,25 +158,40 @@
                             <p>Kpop posters</p>
                         </div>
                         <div class="mplabelcontent mporange">
-                            <img src="test.jpg" alt="">
+                            <img src="/assets/Kpop/made by bea 01.jpg" alt="">
+                            <img src="assets/Kpop/Movie Poster  Bloody Queen.png" alt="">
                         </div>    
                     </div>  
                     
                     <div class="myprobutton" onclick="this.classList.toggle('active')">
                         <div class="mplabel mppurple">
-                            <p>Invitations</p>
+                            <p>Infographic</p>
                         </div>
                         <div class="mplabelcontent mppurple">
-                            <img src="test.jpg" alt="">
+                            <img src="assets/Infographics/Peace Building a Better World Together (1).png" alt="">
+                            <img src="assets/Infographics/ZNNHS SNACK STATION INFOGRAPHIC (1).png" alt="">
+                        </div>    
+                    </div>
+
+                    <div class="myprobutton" onclick="this.classList.toggle('active')">
+                        <div class="mplabel mppink">
+                            <p>Invitations</p>
+                        </div>
+                        <div class="mplabelcontent mppink">
+                            <img src="assets/Invitation/18th bday celebration.png" alt="">
+                            <img src="assets/Invitation/2.png" alt="">
                         </div>    
                     </div>      
 
                     <div class="myprobutton" onclick="this.classList.toggle('active')">
-                        <div class="mplabel mppink">
+                        <div class="mplabel mpyellow">
                             <p>Logos</p>
                         </div>
-                        <div class="mplabelcontent mppink">
-                            <img src="test.jpg" alt="">
+                        <div class="mplabelcontent mpyellow">
+                            <img src="assets/Logo/384471157_962718528130725_9128045414565500139_n.png" alt="">
+                            <img src="assets/Logo/burger frenchies logo.png" alt="">
+                            <img src="assets/Logo/maslow logo.png" alt="">
+                            <img src="assets/Logo/ZNNHS CANTEEN LOGO.png" alt="">
                         </div>    
                     </div>             
                 </div>
@@ -267,7 +297,17 @@
         }
     </script>
 
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        // Add click event listener to all .mplabelcontent elements
+        const labelContents = document.querySelectorAll('.mplabelcontent');
+        labelContents.forEach(labelContent => {
+            labelContent.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+        });
+    });
+    </script>
 </body>
 
 </html>
