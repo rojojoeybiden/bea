@@ -243,6 +243,13 @@
         </footer>
     </div>
 
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+    </div>
+
     <script>
         let slideIndex = 1;
         let autoSlideTimeout;
@@ -308,6 +315,66 @@
         });
     });
     </script>
+
+    <script>
+        let modal = document.getElementById("imageModal");
+        let modalImg = document.getElementById("modalImage");
+        let images = document.querySelectorAll(".mplabelcontent img");
+        let closeBtn = document.querySelector(".close");
+        let currentIndex;
+
+        images.forEach((img, index) => {
+            img.onclick = function() {
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+                currentIndex = index;
+            };
+        });
+
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        };
+
+        document.querySelector(".prev").onclick = function() {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            modalImg.src = images[currentIndex].src;
+        };
+
+        document.querySelector(".next").onclick = function() {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            modalImg.src = images[currentIndex].src;
+        };
+
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
+
+    <script>
+        let startX;
+
+        modalImg.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        modalImg.addEventListener('touchmove', (e) => {
+            if (!startX) return;
+
+            let endX = e.touches[0].clientX;
+            let diffX = startX - endX;
+
+            if (diffX > 50) { 
+                document.querySelector(".next").click();
+            } else if (diffX < -50) {
+                document.querySelector(".prev").click();
+            }
+
+            startX = null; 
+        });
+    </script>
+
 </body>
 
 </html>
