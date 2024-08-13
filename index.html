@@ -367,7 +367,7 @@
 
     // Function to detect mobile devices
     function isMobileDevice() {
-        return /Mobi|Android/i.test(navigator.userAgent);
+        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
     if (!isMobileDevice()) {
@@ -433,6 +433,10 @@
         modalImg.addEventListener('dragstart', (e) => {
             e.preventDefault();
         });
+    } else {
+        // Explicitly disable zooming and dragging on mobile
+        modalImg.style.touchAction = 'none'; // Disable default touch behaviors
+        modalImg.style.pointerEvents = 'none'; // Disable any pointer events on mobile
     }
 
     // Switch images using left and right arrow keys
