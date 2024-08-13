@@ -365,78 +365,78 @@
         }
     };
 
-    // Function to detect mobile devices
-    function isMobileDevice() {
-        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    }
+    // // Function to detect mobile devices
+    // function isMobileDevice() {
+    //     return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    // }
 
-    if (!isMobileDevice()) {
-        // Zoom in/out with mouse wheel
-        modalImg.addEventListener('wheel', function(e) {
-            e.preventDefault();
-            const rect = modalImg.getBoundingClientRect();
-            const offsetY = e.clientY - rect.top;  // Y coordinate within the image
+    // if (!isMobileDevice()) {
+    //     // Zoom in/out with mouse wheel
+    //     modalImg.addEventListener('wheel', function(e) {
+    //         e.preventDefault();
+    //         const rect = modalImg.getBoundingClientRect();
+    //         const offsetY = e.clientY - rect.top;  // Y coordinate within the image
 
-            // Calculate new transform origin (horizontal is always center, vertical based on cursor position)
-            const originY = (offsetY / rect.height) * 100;
+    //         // Calculate new transform origin (horizontal is always center, vertical based on cursor position)
+    //         const originY = (offsetY / rect.height) * 100;
 
-            // Update scale and transform origin smoothly
-            requestAnimationFrame(() => {
-                modalImg.style.transformOrigin = `center ${originY}%`;
+    //         // Update scale and transform origin smoothly
+    //         requestAnimationFrame(() => {
+    //             modalImg.style.transformOrigin = `center ${originY}%`;
 
-                if (e.deltaY < 0) {
-                    // Scroll up - Zoom in
-                    scale = Math.min(scale + 0.1, 4); // Max zoom in level
-                } else {
-                    // Scroll down - Zoom out
-                    scale = Math.max(scale - 0.1, 1); // Min zoom out level
-                }
-                modalImg.style.transform = `scale(${scale})`;
-            });
-        });
+    //             if (e.deltaY < 0) {
+    //                 // Scroll up - Zoom in
+    //                 scale = Math.min(scale + 0.1, 4); // Max zoom in level
+    //             } else {
+    //                 // Scroll down - Zoom out
+    //                 scale = Math.max(scale - 0.1, 1); // Min zoom out level
+    //             }
+    //             modalImg.style.transform = `scale(${scale})`;
+    //         });
+    //     });
 
-        // Handle dragging
-        modalImg.addEventListener('mousedown', (e) => {
-            if (scale > 1) { // Only enable dragging when zoomed in
-                isDragging = true;
-                startX = e.clientX;
-                startY = e.clientY;
-                modalImg.style.transition = 'none'; // Disable transition during drag
-            }
-        });
+    //     // Handle dragging
+    //     modalImg.addEventListener('mousedown', (e) => {
+    //         if (scale > 1) { // Only enable dragging when zoomed in
+    //             isDragging = true;
+    //             startX = e.clientX;
+    //             startY = e.clientY;
+    //             modalImg.style.transition = 'none'; // Disable transition during drag
+    //         }
+    //     });
 
-        window.addEventListener('mousemove', (e) => {
-            if (isDragging) {
-                const rect = modalImg.getBoundingClientRect();
-                const dx = e.clientX - startX;
-                const dy = e.clientY - startY;
+    //     window.addEventListener('mousemove', (e) => {
+    //         if (isDragging) {
+    //             const rect = modalImg.getBoundingClientRect();
+    //             const dx = e.clientX - startX;
+    //             const dy = e.clientY - startY;
 
-                // Update position of image
-                const transform = window.getComputedStyle(modalImg).transform;
-                const matrix = new WebKitCSSMatrix(transform);
+    //             // Update position of image
+    //             const transform = window.getComputedStyle(modalImg).transform;
+    //             const matrix = new WebKitCSSMatrix(transform);
 
-                modalImg.style.transform = `translate(${matrix.m41 + dx}px, ${matrix.m42 + dy}px) scale(${scale})`;
+    //             modalImg.style.transform = `translate(${matrix.m41 + dx}px, ${matrix.m42 + dy}px) scale(${scale})`;
 
-                startX = e.clientX;
-                startY = e.clientY;
-            }
-        });
+    //             startX = e.clientX;
+    //             startY = e.clientY;
+    //         }
+    //     });
 
-        window.addEventListener('mouseup', () => {
-            if (isDragging) {
-                isDragging = false;
-                modalImg.style.transition = 'transform 0.3s ease'; // Re-enable transition after drag
-            }
-        });
+    //     window.addEventListener('mouseup', () => {
+    //         if (isDragging) {
+    //             isDragging = false;
+    //             modalImg.style.transition = 'transform 0.3s ease'; // Re-enable transition after drag
+    //         }
+    //     });
 
-        // Prevent default drag behavior
-        modalImg.addEventListener('dragstart', (e) => {
-            e.preventDefault();
-        });
-    } else {
-        // Disable zooming and dragging on mobile
-        modalImg.style.touchAction = 'pan-y'; // Allow vertical scrolling, disable other touch behaviors
-    }
+    //     // Prevent default drag behavior
+    //     modalImg.addEventListener('dragstart', (e) => {
+    //         e.preventDefault();
+    //     });
+    // } else {
+    //     // Disable zooming and dragging on mobile
+    //     modalImg.style.touchAction = 'pan-y'; // Allow vertical scrolling, disable other touch behaviors
+    // }
 
     // Switch images using left and right arrow keys
     window.addEventListener('keydown', (e) => {
