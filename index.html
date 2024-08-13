@@ -304,18 +304,16 @@
         }
     </script>
 
+
+
 <script>
     let modal = document.getElementById("imageModal");
     let modalImg = document.getElementById("modalImage");
     let images = document.querySelectorAll(".mplabelcontent img");
     let closeBtn = document.querySelector(".close");
     let currentIndex;
-    let scale = 1;
     let isDragging = false;
     let startX, startY;
-
-    // Add CSS transition for smooth scaling
-    modalImg.style.transition = "transform 0.3s ease";
 
     // Open image modal
     images.forEach((img, index) => {
@@ -324,9 +322,6 @@
             modalImg.src = this.src;
             currentIndex = index;
             document.body.style.overflow = "hidden"; // Disable background scrolling
-            scale = 1; // Reset scale when opening a new image
-            modalImg.style.transform = `scale(${scale})`;
-            modalImg.style.transformOrigin = "center center"; // Reset transform origin
         };
     });
 
@@ -340,18 +335,12 @@
     function showPrevImage() {
         currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
         modalImg.src = images[currentIndex].src;
-        scale = 1; // Reset scale when changing images
-        modalImg.style.transform = `scale(${scale})`;
-        modalImg.style.transformOrigin = "center center"; // Reset transform origin
     }
 
     // Next image
     function showNextImage() {
         currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
         modalImg.src = images[currentIndex].src;
-        scale = 1; // Reset scale when changing images
-        modalImg.style.transform = `scale(${scale})`;
-        modalImg.style.transformOrigin = "center center"; // Reset transform origin
     }
 
     document.querySelector(".prev").onclick = showPrevImage;
@@ -364,79 +353,6 @@
             document.body.style.overflow = ""; // Enable background scrolling
         }
     };
-
-    // // Function to detect mobile devices
-    // function isMobileDevice() {
-    //     return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    // }
-
-    // if (!isMobileDevice()) {
-    //     // Zoom in/out with mouse wheel
-    //     modalImg.addEventListener('wheel', function(e) {
-    //         e.preventDefault();
-    //         const rect = modalImg.getBoundingClientRect();
-    //         const offsetY = e.clientY - rect.top;  // Y coordinate within the image
-
-    //         // Calculate new transform origin (horizontal is always center, vertical based on cursor position)
-    //         const originY = (offsetY / rect.height) * 100;
-
-    //         // Update scale and transform origin smoothly
-    //         requestAnimationFrame(() => {
-    //             modalImg.style.transformOrigin = `center ${originY}%`;
-
-    //             if (e.deltaY < 0) {
-    //                 // Scroll up - Zoom in
-    //                 scale = Math.min(scale + 0.1, 4); // Max zoom in level
-    //             } else {
-    //                 // Scroll down - Zoom out
-    //                 scale = Math.max(scale - 0.1, 1); // Min zoom out level
-    //             }
-    //             modalImg.style.transform = `scale(${scale})`;
-    //         });
-    //     });
-
-    //     // Handle dragging
-    //     modalImg.addEventListener('mousedown', (e) => {
-    //         if (scale > 1) { // Only enable dragging when zoomed in
-    //             isDragging = true;
-    //             startX = e.clientX;
-    //             startY = e.clientY;
-    //             modalImg.style.transition = 'none'; // Disable transition during drag
-    //         }
-    //     });
-
-    //     window.addEventListener('mousemove', (e) => {
-    //         if (isDragging) {
-    //             const rect = modalImg.getBoundingClientRect();
-    //             const dx = e.clientX - startX;
-    //             const dy = e.clientY - startY;
-
-    //             // Update position of image
-    //             const transform = window.getComputedStyle(modalImg).transform;
-    //             const matrix = new WebKitCSSMatrix(transform);
-
-    //             modalImg.style.transform = `translate(${matrix.m41 + dx}px, ${matrix.m42 + dy}px) scale(${scale})`;
-
-    //             startX = e.clientX;
-    //             startY = e.clientY;
-    //         }
-    //     });
-
-    //     window.addEventListener('mouseup', () => {
-    //         if (isDragging) {
-    //             isDragging = false;
-    //             modalImg.style.transition = 'transform 0.3s ease'; // Re-enable transition after drag
-    //         }
-    //     });
-
-    //     // Prevent default drag behavior
-    //     modalImg.addEventListener('dragstart', (e) => {
-    //         e.preventDefault();
-    //     });
-    // } else {
-    //     // Disable zooming and dragging on mobile
-    //     modalImg.style.touchAction = 'pan-y'; // Allow vertical scrolling, disable other touch behaviors
-    // }
 
     // Switch images using left and right arrow keys
     window.addEventListener('keydown', (e) => {
@@ -511,6 +427,7 @@
         });
     });
 </script>
+
 </body>
 
 </html>
