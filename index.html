@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="headericon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Test</title>
+    <title>Bea's Portfolio</title>
 </head>
 
 <body>
@@ -365,68 +365,75 @@
         }
     };
 
-    // Zoom in/out with mouse wheel
-    modalImg.addEventListener('wheel', function(e) {
-        e.preventDefault();
-        const rect = modalImg.getBoundingClientRect();
-        const offsetY = e.clientY - rect.top;  // Y coordinate within the image
+    // Function to detect mobile devices
+    function isMobileDevice() {
+        return /Mobi|Android/i.test(navigator.userAgent);
+    }
 
-        // Calculate new transform origin (horizontal is always center, vertical based on cursor position)
-        const originY = (offsetY / rect.height) * 100;
-
-        // Update scale and transform origin smoothly
-        requestAnimationFrame(() => {
-            modalImg.style.transformOrigin = `center ${originY}%`;
-
-            if (e.deltaY < 0) {
-                // Scroll up - Zoom in
-                scale = Math.min(scale + 0.1, 4); // Max zoom in level
-            } else {
-                // Scroll down - Zoom out
-                scale = Math.max(scale - 0.1, 1); // Min zoom out level
-            }
-            modalImg.style.transform = `scale(${scale})`;
-        });
-    });
-
-    // Handle dragging
-    modalImg.addEventListener('mousedown', (e) => {
-        if (scale > 1) { // Only enable dragging when zoomed in
-            isDragging = true;
-            startX = e.clientX;
-            startY = e.clientY;
-            modalImg.style.transition = 'none'; // Disable transition during drag
-        }
-    });
-
-    window.addEventListener('mousemove', (e) => {
-        if (isDragging) {
+    if (!isMobileDevice()) {
+        // Zoom in/out with mouse wheel
+        modalImg.addEventListener('wheel', function(e) {
+            e.preventDefault();
             const rect = modalImg.getBoundingClientRect();
-            const dx = e.clientX - startX;
-            const dy = e.clientY - startY;
-            
-            // Update position of image
-            const transform = window.getComputedStyle(modalImg).transform;
-            const matrix = new WebKitCSSMatrix(transform);
-            
-            modalImg.style.transform = `translate(${matrix.m41 + dx}px, ${matrix.m42 + dy}px) scale(${scale})`;
-            
-            startX = e.clientX;
-            startY = e.clientY;
-        }
-    });
+            const offsetY = e.clientY - rect.top;  // Y coordinate within the image
 
-    window.addEventListener('mouseup', () => {
-        if (isDragging) {
-            isDragging = false;
-            modalImg.style.transition = 'transform 0.3s ease'; // Re-enable transition after drag
-        }
-    });
+            // Calculate new transform origin (horizontal is always center, vertical based on cursor position)
+            const originY = (offsetY / rect.height) * 100;
 
-    // Prevent default drag behavior
-    modalImg.addEventListener('dragstart', (e) => {
-        e.preventDefault();
-    });
+            // Update scale and transform origin smoothly
+            requestAnimationFrame(() => {
+                modalImg.style.transformOrigin = `center ${originY}%`;
+
+                if (e.deltaY < 0) {
+                    // Scroll up - Zoom in
+                    scale = Math.min(scale + 0.1, 4); // Max zoom in level
+                } else {
+                    // Scroll down - Zoom out
+                    scale = Math.max(scale - 0.1, 1); // Min zoom out level
+                }
+                modalImg.style.transform = `scale(${scale})`;
+            });
+        });
+
+        // Handle dragging
+        modalImg.addEventListener('mousedown', (e) => {
+            if (scale > 1) { // Only enable dragging when zoomed in
+                isDragging = true;
+                startX = e.clientX;
+                startY = e.clientY;
+                modalImg.style.transition = 'none'; // Disable transition during drag
+            }
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                const rect = modalImg.getBoundingClientRect();
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+
+                // Update position of image
+                const transform = window.getComputedStyle(modalImg).transform;
+                const matrix = new WebKitCSSMatrix(transform);
+
+                modalImg.style.transform = `translate(${matrix.m41 + dx}px, ${matrix.m42 + dy}px) scale(${scale})`;
+
+                startX = e.clientX;
+                startY = e.clientY;
+            }
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                modalImg.style.transition = 'transform 0.3s ease'; // Re-enable transition after drag
+            }
+        });
+
+        // Prevent default drag behavior
+        modalImg.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+        });
+    }
 
     // Switch images using left and right arrow keys
     window.addEventListener('keydown', (e) => {
@@ -440,55 +447,55 @@
     });
 </script>
 
-<script>
-    let touchStartX, touchStartY, touchEndX, touchEndY;
+    <script>
+        let touchStartX, touchStartY, touchEndX, touchEndY;
 
-    modalImg.addEventListener('touchstart', (e) => {
-        if (e.touches.length > 1) return; // Ignore multi-touch
+        modalImg.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 1) return; // Ignore multi-touch
 
-        touchStartX = e.touches[0].clientX;
-        touchStartY = e.touches[0].clientY;
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
 
-        // Prevent default touch behavior (like scrolling)
-        e.preventDefault();
-    });
+            // Prevent default touch behavior (like scrolling)
+            e.preventDefault();
+        });
 
-    modalImg.addEventListener('touchmove', (e) => {
-        if (!touchStartX || !touchStartY || e.touches.length > 1) return;
+        modalImg.addEventListener('touchmove', (e) => {
+            if (!touchStartX || !touchStartY || e.touches.length > 1) return;
 
-        touchEndX = e.touches[0].clientX;
-        touchEndY = e.touches[0].clientY;
+            touchEndX = e.touches[0].clientX;
+            touchEndY = e.touches[0].clientY;
 
-        // Prevent default touch behavior (like scrolling)
-        e.preventDefault();
-    });
+            // Prevent default touch behavior (like scrolling)
+            e.preventDefault();
+        });
 
-    modalImg.addEventListener('touchend', (e) => {
-        if (!touchStartX || !touchStartY || !touchEndX || !touchEndY) return;
+        modalImg.addEventListener('touchend', (e) => {
+            if (!touchStartX || !touchStartY || !touchEndX || !touchEndY) return;
 
-        let diffX = touchStartX - touchEndX;
-        let diffY = touchStartY - touchEndY;
+            let diffX = touchStartX - touchEndX;
+            let diffY = touchStartY - touchEndY;
 
-        if (Math.abs(diffX) > Math.abs(diffY)) { // Horizontal swipe
-            if (diffX > 50) { 
-                // Swipe left - show next image
-                document.querySelector(".next").click();
-            } else if (diffX < -50) {
-                // Swipe right - show previous image
-                document.querySelector(".prev").click();
+            if (Math.abs(diffX) > Math.abs(diffY)) { // Horizontal swipe
+                if (diffX > 50) { 
+                    // Swipe left - show next image
+                    document.querySelector(".next").click();
+                } else if (diffX < -50) {
+                    // Swipe right - show previous image
+                    document.querySelector(".prev").click();
+                }
             }
-        }
-        
-        // Reset values
-        touchStartX = null;
-        touchStartY = null;
-        touchEndX = null;
-        touchEndY = null;
+            
+            // Reset values
+            touchStartX = null;
+            touchStartY = null;
+            touchEndX = null;
+            touchEndY = null;
 
-        // Prevent default touch behavior (like scrolling)
-        e.preventDefault();
-    });
-</script>
+            // Prevent default touch behavior (like scrolling)
+            e.preventDefault();
+        });
+    </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
