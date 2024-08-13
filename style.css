@@ -740,6 +740,7 @@ footer p {
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 /* Left and right buttons */
@@ -770,8 +771,29 @@ footer p {
 /* Hover effect for the buttons */
 .prev:hover, .next:hover {
     background-color: rgba(0,0,0,0.8);
+    border-radius: 10px;
 }
 
 #modalImage {
     transition: transform 0.3s ease;
+}
+
+.prev, .next {
+    opacity: 0.3; /* Set low opacity by default */
+    transition: opacity 0.3s ease; /* Smooth transition when opacity changes */
+}
+
+.prev:hover, .next:hover {
+    opacity: 1; /* Full opacity on hover */
+}
+
+.close {
+    opacity: 0.3; /* Set low opacity by default */
+    transition: opacity 0.3s ease; /* Smooth transition when opacity changes */
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 5px;
+}
+
+.close:hover {
+    opacity: 1; /* Full opacity on hover */
 }
