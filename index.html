@@ -434,9 +434,8 @@
             e.preventDefault();
         });
     } else {
-        // Explicitly disable zooming and dragging on mobile
-        modalImg.style.touchAction = 'none'; // Disable default touch behaviors
-        modalImg.style.pointerEvents = 'none'; // Disable any pointer events on mobile
+        // Disable zooming and dragging on mobile
+        modalImg.style.touchAction = 'pan-y'; // Allow vertical scrolling, disable other touch behaviors
     }
 
     // Switch images using left and right arrow keys
@@ -451,58 +450,58 @@
     });
 </script>
 
-    <script>
-        let touchStartX, touchStartY, touchEndX, touchEndY;
+<script>
+    let touchStartX, touchStartY, touchEndX, touchEndY;
 
-        modalImg.addEventListener('touchstart', (e) => {
-            if (e.touches.length > 1) return; // Ignore multi-touch
+    modalImg.addEventListener('touchstart', (e) => {
+        if (e.touches.length > 1) return; // Ignore multi-touch
 
-            touchStartX = e.touches[0].clientX;
-            touchStartY = e.touches[0].clientY;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
 
-            // Prevent default touch behavior (like scrolling)
-            e.preventDefault();
-        });
+        // Prevent default touch behavior (like scrolling)
+        e.preventDefault();
+    });
 
-        modalImg.addEventListener('touchmove', (e) => {
-            if (!touchStartX || !touchStartY || e.touches.length > 1) return;
+    modalImg.addEventListener('touchmove', (e) => {
+        if (!touchStartX || !touchStartY || e.touches.length > 1) return;
 
-            touchEndX = e.touches[0].clientX;
-            touchEndY = e.touches[0].clientY;
+        touchEndX = e.touches[0].clientX;
+        touchEndY = e.touches[0].clientY;
 
-            // Prevent default touch behavior (like scrolling)
-            e.preventDefault();
-        });
+        // Prevent default touch behavior (like scrolling)
+        e.preventDefault();
+    });
 
-        modalImg.addEventListener('touchend', (e) => {
-            if (!touchStartX || !touchStartY || !touchEndX || !touchEndY) return;
+    modalImg.addEventListener('touchend', (e) => {
+        if (!touchStartX || !touchStartY || !touchEndX || !touchEndY) return;
 
-            let diffX = touchStartX - touchEndX;
-            let diffY = touchStartY - touchEndY;
+        let diffX = touchStartX - touchEndX;
+        let diffY = touchStartY - touchEndY;
 
-            if (Math.abs(diffX) > Math.abs(diffY)) { // Horizontal swipe
-                if (diffX > 50) { 
-                    // Swipe left - show next image
-                    document.querySelector(".next").click();
-                } else if (diffX < -50) {
-                    // Swipe right - show previous image
-                    document.querySelector(".prev").click();
-                }
+        if (Math.abs(diffX) > Math.abs(diffY)) { // Horizontal swipe
+            if (diffX > 50) { 
+                // Swipe left - show next image
+                document.querySelector(".next").click();
+            } else if (diffX < -50) {
+                // Swipe right - show previous image
+                document.querySelector(".prev").click();
             }
-            
-            // Reset values
-            touchStartX = null;
-            touchStartY = null;
-            touchEndX = null;
-            touchEndY = null;
+        }
+        
+        // Reset values
+        touchStartX = null;
+        touchStartY = null;
+        touchEndX = null;
+        touchEndY = null;
 
-            // Prevent default touch behavior (like scrolling)
-            e.preventDefault();
-        });
-    </script>
+        // Prevent default touch behavior (like scrolling)
+        e.preventDefault();
+    });
+</script>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
         // Add click event listener to all .mplabelcontent elements
         const labelContents = document.querySelectorAll('.mplabelcontent');
         labelContents.forEach(labelContent => {
@@ -511,7 +510,7 @@
             });
         });
     });
-    </script>
+</script>
 </body>
 
 </html>
